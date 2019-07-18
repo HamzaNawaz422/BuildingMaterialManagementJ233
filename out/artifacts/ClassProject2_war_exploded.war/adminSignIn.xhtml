@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Admin Login</title>
+
+
+    <style type="text/css">
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background-image: url("bggg.jpg");
+
+        }
+
+        .loginBox{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform:translate(-50%,-50%);
+            width:350px;
+            box-sizing:border-box;
+            background: transparent;
+            box-shadow: 0 10px 20px rgba(0,0,0,.5) ;
+            border-radius: 5px;
+            transition: .5s;
+        }
+        .loginBox:hover{
+            box-shadow: 0 10px 20px rgba(0,0,0,.1);
+            background: rgba(255,255,255,1);
+        }
+        .glass{
+            width: 100%;
+            height:100%;
+            padding: 40px;
+            box-sizing: border-box;
+            background: rgba(255,255,255,.1);
+            border-radius: 5px;
+            transition: .5s;
+
+        }
+        .glass:hover{
+
+        }
+
+        .pic{
+            margin:0 auto;
+            display :block;
+            margin-bottom: 40px;
+        }
+
+        h3{
+            margin: 0;
+            padding: 0 0 20px;
+            color: slateblue;
+            text-align: center;
+        }
+
+        .loginBox input{
+            width:100% ;
+            margin-bottom :20px ;
+
+        }
+        .loginBox input[type="text"],
+        .loginBox input[type="password"]
+        {
+            border:none;
+            border-bottom:2px solid #262626 ;
+            outline:none;
+            height:40px;
+            color: crimson;
+            background:transparent;
+            font-size: 16px;
+            padding-left: 20px;
+            box-sizing: border-box;
+        }
+        .textPlacement{
+            color:rgba(0,0,0,.5);
+        }
+
+        .inputBox{
+            position: relative;
+            text-decoration-color: crimson;
+        }
+        .inputBox span{
+            position: absolute;
+            top:10px;
+            color:#262626;
+        }
+        .loginBox a{
+            color:#262626;
+            font-size:20px ;
+            font-weight:bold ;
+            text-decoration: none;
+            text-align: center;
+            display: block;
+        }
+        .loginBox input[type="submit"]{
+            border:none;
+            outline: none;
+            height: 40px;
+            font-size: 16px;
+            background:mediumseagreen;
+            color: #fff;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        .img-circle{
+            border-radius:50%;
+        }
+    </style>
+
+    <h:link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"/>
+</h:head>
+<h:body>
+
+    <div class="loginBox">
+        <div class="glass">
+
+
+
+            <h3>Admin Sign in Here</h3>
+            <h:form id="loginForm">
+                <div class="inputBox">
+                    <h:outputLabel value="CNIC: " />
+                    <h:inputText value="#{adminm.adminb.cnic}" required="true"
+                                 requiredMessage="CNIC REQUIRED">
+                            <f:validateRequired/>
+
+                            </h:inputText>
+                    <span><i class="fas fa-user"></i></span>
+                </div>
+
+                <div class="inputBox">
+                    <h:outputLabel value="Password: " />
+                    <h:inputSecret value="#{adminm.adminb.password}" required="true"
+                            requiredMessage="Password Required">
+                            <f:validateRequired/>
+                            </h:inputSecret>
+                    <span><i class="fas fa-lock"></i></span>
+                </div>
+                <div id="submitBtn" class="textPlacement">
+                    <h:commandButton value="Login" action="adminpannel" />
+
+                </div>
+            </h:form>
+            <a href="index.xhtml">Back To Home</a>
+            <a href="AdminSignUp.xhtml">Create New Account?</a>
+        </div>
+    </div>
+</h:body>
+
+
+
+<f:view>
+    <h:outputLabel value="Hello, world"/>
+</f:view>
+</html>

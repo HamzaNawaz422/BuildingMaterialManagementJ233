@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>List Of Users</title>
+    <style type="text/css">
+        table {
+            border-collapse: collapse;
+            margin-left: 5%;
+            border: 1px solid #000000;
+        }
+        th, td {
+            text-align: left;
+            padding:8px;
+            border: 1px dashed #000000;
+        }
+        tr:nth-child(even){background-color: #e6e6e6
+        }
+        th {
+            background-color: #000;
+            color: white;
+        }
+    </style>
+
+</h:head>
+<h:body>
+    <h:form>
+        <h1>List of Customers</h1>
+        <h:dataTable value="#{user.getPersonList()}" var="username" border="4">
+            <h:column>
+                <f:facet name="header">
+                    userName
+                </f:facet>
+                <h:outputText value="#{username.fname}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    Last Name
+                </f:facet>
+                <h:outputText value="#{username.lname}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    CNIC
+                </f:facet>
+                <h:outputText value="#{username.cnic}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    total
+                </f:facet>
+                <h:outputText value="#{username.totalamount}"/>
+            </h:column>
+
+
+            <h:column>
+                <f:facet name="header">
+                    RemainingAmount
+                </f:facet>
+                <h:outputText value="#{username.remainingamount}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    Address
+                </f:facet>
+                <h:outputText value="#{username.address}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    Delete
+                </f:facet>
+                <h:commandButton value="Delete" action="#{user.DeleteCustomer(username)}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    Update
+                </f:facet>
+                <h:commandButton value="Update" action="AddCustomer"/>
+            </h:column>
+
+        </h:dataTable>
+        <h:commandButton value="Add New" action="AddCustomer"></h:commandButton>
+        <h:commandButton value="Back" action="adminpannel"></h:commandButton>
+        <h:commandButton  value="Logout" action="index"></h:commandButton>
+    </h:form>
+
+
+</h:body>
+
+</html>
